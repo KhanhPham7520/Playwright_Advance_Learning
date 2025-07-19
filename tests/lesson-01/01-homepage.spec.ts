@@ -18,17 +18,17 @@ test.describe('assertion', async () => {
         const products = await page.locator("//li[contains(@class,'product')]").all();
         console.log("Danh sách sản phẩm là : " + products.length);
 
-        expect(products.length).toEqual(testConfig.number_of_product);
+        expect(products.length).toEqual(testConfig.home_page.number_of_product);
     });
 
     test("2. Assert number of product", async ({ page }) => {
-        const baseUrl = process.env.BASE_URL || '';
+        const baseUrl = (process.env.BASE_URL || '').trim();
         await page.goto(baseUrl);
 
         const products = await page.locator("//li[contains(@class,'product')]").all();
         console.log("Danh sách sản phẩm là : " + products.length);
 
-        expect(products.length).toEqual(testConfig.number_of_product);
+        expect(products.length).toEqual(testConfig.home_page.number_of_product);
     });
 
 });

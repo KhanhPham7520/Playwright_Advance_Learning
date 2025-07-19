@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from "path";
 import { readConfig } from "../../utils/config";
 
-
+let testConfig : any;
   test.beforeEach(() => {
         testConfig = readConfig(); // lặp lại vòng code này cho mỗi test case
     });
@@ -16,8 +16,8 @@ test('01 - test annotation', {
     tag: ["@annotation"]
 }, async ({ page }, testInfo) => {
 
-    const baseUrl = (process.env.ENV || 'dev').trim();
-    await page.goto("https://e-commerce.betterbytesvn.com/");
+    const baseUrl = (process.env.BASE_URL || 'dev').trim();
+    await page.goto(baseUrl);
 
 
     if (baseUrl.includes('dev')) {
@@ -33,13 +33,13 @@ test('01 - test annotation', {
     }
 });
 
-
 test("Assert number of product 1", {
     tag: ["@smoke"]
 }, async ({ page }) => {
-    const baseUrl = (process.env.ENV || 'dev').trim();
+    const baseUrl = (process.env.BASE_URL || 'dev').trim();
     await page.goto(baseUrl);
 
+    
     const products = await page.locator("//li[contains(@class,'product')]").all();
     console.log("Danh sách sản phẩm là : " + products.length);
 });

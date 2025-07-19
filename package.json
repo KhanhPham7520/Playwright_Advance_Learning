@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "demo.js",
-  "scripts": {},
+  "scripts": {
+    "test:dev": "cross-env ENV=dev playwright test",
+    "test:production": "cross-env ENV=production playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -12,5 +15,8 @@
     "@playwright/test": "1.53.2",
     "@types/node": "^24.0.10",
     "dotenv": "^16.6.1"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
   }
 }
