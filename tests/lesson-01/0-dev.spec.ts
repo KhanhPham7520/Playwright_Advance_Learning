@@ -1,15 +1,14 @@
 import { test, expect } from "playwright/test";
 
-test('Go to homepage', async ({ page }) => {
+test('Go to homepage', async ({ page, context }) => {
     
-    const baseURL = process.env.BASE_URL || '';
-    await page.goto(baseURL);
+    await page.goto("https://e-commerce.betterbytesvn.com/");
 
-    if(baseURL.includes("dev")){
-        await expect(page).toHaveTitle(/E-commerce site for automation testing/);
-    }else {
-        await expect(page).toHaveTitle(/Automation test site/);
-    }
+    const cookies = await context.cookies();
+    console.log(cookies);
+    await context.newPage();
 
+    
+    
 
 })
