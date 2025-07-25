@@ -1,4 +1,4 @@
-import { test } from "./01-custom-02";
+import { test } from "../01-custom-02";
 
 test.describe("Fixtures - custom", async () => {
     // before
