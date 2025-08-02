@@ -6,4 +6,9 @@ test.describe("Fixtures - custom", async () => {
         await page.goto("https://pw-practice-dev.playwrightvn.com/wp-admin/");
         console.log("Inside test 1");
     });
+
+    test('test 2', async ({ page }) => {
+        await page.goto("https://pw-practice-dev.playwrightvn.com/wp-admin/");
+        console.log("Inside test 2");
+    });
 });

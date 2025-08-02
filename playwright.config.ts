@@ -31,7 +31,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
-
+    baseURL: process.env.BASE_URL,
     headless: false, // 👈 Bắt buộc để trình duyệt hiển thị
   },
 
@@ -40,17 +40,20 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-    }
-
+    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // }
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
     //   use: { ...devices['Pixel 5'] },
     // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    {
+      name: 'iPhone6',
+      use: { ...devices['iPhone 6'] },
+    },
 
     /* Test against branded browsers. */
     // {

@@ -5,6 +5,5 @@ test.describe("Test custom fixture", async () => {
     // before
     test('custom test 1', async ({ page }) => {
         console.log("Inside test 1");
-
     });
 });
